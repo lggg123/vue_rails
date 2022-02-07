@@ -4,6 +4,7 @@
       <h1>Todo List Manager</h1>
       <h6>Powered by Vue | Vuex 4 | Axios | Ruby on Rails 6 | SQLite 3</h6>
       <AddTodo />
+      <FilterTodos />
       <Todos />
     </div>
   </div>
@@ -12,12 +13,14 @@
 <script>
 import Todos from '@/components/Todos.vue';
 import AddTodo from '@/components/AddTodo.vue';
+import FilterTodos from '@/components/FilterTodos.vue'
 
 export default {
   name: "App",
   components: {
     Todos,
-    AddTodo
+    AddTodo,
+    FilterTodos
   }
 };
 </script>
