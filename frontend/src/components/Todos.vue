@@ -14,17 +14,18 @@
             <div 
                 v-for="todo in allTodos"
                 :key="todo.id"
-                @dbclick="onDoubleClick(todo)" 
+                @dblclick="onDoubleClick(todo)" 
                 class="todo"
                 v-bind:class="{'is-complete':todo.completed}">
                 {{ todo.title }}
-                <i @click="deleteTodo(todo.id)" class="fas fa-trash"></i>
-                
+                <i @click="deleteTodo(todo.id)" class="fas fa-trash-alt"></i>
             </div>
         </div>
     </div>
 </template>
 <script>
+import {mapGetters, mapActions} from 'vuex';
+
 export default {
    // import out getters and actions
    // getters all todos and actions are next
@@ -47,7 +48,6 @@ export default {
     computed: {
         ...mapGetters([
             'allTodos',
-
         ])
     },
     created() {
@@ -85,6 +85,7 @@ export default {
     .complete-box {
         display: inline-block;
         width: 10px;
+        height: 10px;
         background: #35495e;
     }
     .incomplete-box {
@@ -93,9 +94,13 @@ export default {
         height: 10px;
         background: #41b882;
     }
+    .is-complete {
+        background: #35495e;
+        color: #fff;
+    }
     @media (max-width: 500px) {
         .todos {
-            grid-template-columns: (1, 1fr);
+            grid-template-columns: 1fr;
         }
     }
 </style>
